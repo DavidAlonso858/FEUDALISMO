@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     [Header("Health")]
     [SerializeField] private float maxHealth;
 
-    [SerializeField] private AudioClip clipHurt, clipDeath;
+    [SerializeField] private AudioClip clipDeath;
     private AudioSource audioS;
 
     private float currentHealth;
@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
+
         // para que el enemigo siga al jugador/player
         player = GameObject.FindGameObjectWithTag("Player").transform;
         audioS = GetComponent<AudioSource>();
@@ -35,25 +36,28 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0) return;
 
         agent.SetDestination(player.position);
+
         // variable del animator para que cambie la animacion dependiendo de la velocidad
         animator.SetFloat("velocity", agent.velocity.magnitude);
     }
 
     public void GetDamage()
     {
+        // evita doble damage a un enemigo muerto ya
+        if (currentHealth <= 0) return;
+
         currentHealth--;
+
         if (currentHealth <= 0)
         {
             // MUERTE
             agent.enabled = false;
-            animator.Play("Death");
+            animator.Play("Mini Simple Characters Armature|Death");
             GetComponent<Collider>().enabled = false;
             audioS.clip = clipDeath;
+            StartSinking();
         }
-        else
-        {
-            audioS.clip = clipHurt;
-        }
+       
         audioS.Play();
     }
 
@@ -65,13 +69,13 @@ public class Enemy : MonoBehaviour
     IEnumerator Sinking()
     {
         // lo puedo llamar porque es static, sin tener que serializarlo etc
-        //   GameManager.instance.EnemyDeath();
+        // GameManager.instance.EnemyDeath();
         // para que se ejecute despues de 1 segundo en la animacion de muerte
         yield return new WaitForSeconds(1f);
         while (transform.position.y > -2.5f)
         {
-            transform.Translate(Vector3.down * 0.1f);
-            yield return new WaitForSeconds(0.03f);
+            transform.Translate(Vector3.down * 0.1f); // velocidad a la que se hunde
+            yield return new WaitForSeconds(0.04f); // suavidad del hundimiento
         }
         Destroy(gameObject);
     }

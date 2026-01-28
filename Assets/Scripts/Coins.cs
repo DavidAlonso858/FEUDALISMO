@@ -3,15 +3,12 @@ using UnityEngine;
 public class Coins : MonoBehaviour
 {
     [Header("Configuración")]
-    [SerializeField] private float speed = 20f;
+    [SerializeField] private float speed = 10f;
     [SerializeField] private float lifetime = 3f;
-    [SerializeField] private int damage = 1;
+    [SerializeField] private float damage = 0.5f;
     [SerializeField] private float homingStrength = 2f; // Nueva propiedad
     
-    [Header("Efectos")]
-    [SerializeField] private GameObject hitEffect;
-    [SerializeField] private AudioClip hitSound;
-    
+
     private Vector3 direction;
     private Transform target;
     private bool hasTarget = false;
@@ -71,18 +68,10 @@ public class Coins : MonoBehaviour
         if (Time.time - creationTime < 0.1f)
             return;
         
-        // Si golpea un enemigo
         Enemy enemy = other.GetComponent<Enemy>();
         if (enemy != null)
         {
             enemy.GetDamage();
-            
-            // Efecto de golpe
-            if (hitEffect != null)
-                Instantiate(hitEffect, transform.position, Quaternion.identity);
-                
-            if (hitSound != null)
-                AudioSource.PlayClipAtPoint(hitSound, transform.position);
                 
             Destroy(gameObject);
             return;

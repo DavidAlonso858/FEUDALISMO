@@ -131,20 +131,7 @@ public class PlayerShooting : MonoBehaviour
 
     void RotatePlayer()
     {
-        if (enemiesInRange.Count > 0 && enemiesInRange[0] != null)
-        {
-            // Rotar hacia el enemigo más cercano
-            Vector3 lookPos = enemiesInRange[0].transform.position - transform.position;
-            lookPos.y = 0;
-
-            if (lookPos != Vector3.zero)
-            {
-                Quaternion targetRotation = Quaternion.LookRotation(lookPos);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation,
-                    rotationSpeed * Time.deltaTime);
-            }
-        }
-        else if (cam != null)
+        if (cam != null)
         {
             // Rotar hacia el mouse
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
