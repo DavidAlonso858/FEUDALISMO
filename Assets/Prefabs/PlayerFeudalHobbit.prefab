@@ -414,7 +414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 400ff1074cbaaa640ac7bd5f12bb4fcf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 400ff1074cbaaa640ac7bd5f12bb4fcf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -476,7 +476,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: 400ff1074cbaaa640ac7bd5f12bb4fcf, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 400ff1074cbaaa640ac7bd5f12bb4fcf, type: 3}
@@ -524,9 +525,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: d61d24274c365420a99b5431a318d845, type: 3}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -632,7 +633,7 @@ CapsuleCollider:
   m_Radius: 0.7
   m_Height: 4
   m_Direction: 0
-  m_Center: {x: 0, y: 1.2, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &7507550470939488346
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -672,7 +673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f949e26796d0ae84fba3bb2801352cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  speed: 12
+  speed: 10
 --- !u!114 &3945151912157001820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -691,11 +692,18 @@ MonoBehaviour:
   layerShoot:
     serializedVersion: 2
     m_Bits: 64
-  shootPoint: {fileID: 2213496311975768185}
+  shootPoints:
+  - {fileID: 2213496311975768185}
+  - {fileID: 177288536656568814}
+  - {fileID: 5167857488237420522}
+  - {fileID: 3761581672412898942}
   coinPrefab: {fileID: 8065618498464518378, guid: d7f04ea33a48e3645a210045951a2d81, type: 3}
-  cadency: 0.2
-  detectionRange: 15
   clipCoin: {fileID: 8300000, guid: 1b2af9d09e3347541ac7894b85617b17, type: 3}
+  cadency: 0.6
+  detectionRange: 15
+  rotationSpeed: 10
+  multiShot: 1
+  lightDuration: 0.1
 --- !u!4 &8018799042550148709 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 400ff1074cbaaa640ac7bd5f12bb4fcf, type: 3}
