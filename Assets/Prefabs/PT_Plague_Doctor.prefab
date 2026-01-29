@@ -18,15 +18,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb57f7c83ae84d046a752b96f7843b2a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb57f7c83ae84d046a752b96f7843b2a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb57f7c83ae84d046a752b96f7843b2a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb57f7c83ae84d046a752b96f7843b2a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -496,10 +496,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.35
+  m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: -0.00574854, y: 0.85, z: -0.030918598}
 --- !u!195 &8511958037353931167
 NavMeshAgent:
   m_ObjectHideFlags: 0

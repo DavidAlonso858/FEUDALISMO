@@ -699,11 +699,11 @@ MonoBehaviour:
   - {fileID: 3761581672412898942}
   coinPrefab: {fileID: 8065618498464518378, guid: d7f04ea33a48e3645a210045951a2d81, type: 3}
   clipCoin: {fileID: 8300000, guid: 1b2af9d09e3347541ac7894b85617b17, type: 3}
-  cadency: 0.6
-  detectionRange: 15
-  rotationSpeed: 10
+  cadency: 0.8
+  detectionRange: 16
+  rotationSpeed: 12
   multiShot: 1
-  lightDuration: 0.1
+  lightDuration: 2.8
 --- !u!4 &8018799042550148709 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 400ff1074cbaaa640ac7bd5f12bb4fcf, type: 3}
