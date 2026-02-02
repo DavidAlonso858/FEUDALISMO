@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 858628069584023478}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.81, y: 1.713, z: 0.125}
+  m_LocalPosition: {x: -1.853, y: 1.713, z: 0.173}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -123,7 +123,7 @@ Transform:
   m_GameObject: {fileID: 1621711381456936007}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.827, y: 1.713, z: 0.009}
+  m_LocalPosition: {x: 1.852, y: 1.713, z: 0.183}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -220,7 +220,7 @@ Transform:
   m_GameObject: {fileID: 6778420284500511446}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.865, y: 1.713, z: -0.208}
+  m_LocalPosition: {x: 1.865, y: 1.713, z: -0.306}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -317,7 +317,7 @@ Transform:
   m_GameObject: {fileID: 8983720933444767464}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.928, y: 1.713, z: -0.208}
+  m_LocalPosition: {x: -1.829, y: 1.713, z: -0.312}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -530,7 +530,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.06
+  m_Volume: 0.09
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -702,7 +702,7 @@ MonoBehaviour:
   - {fileID: 3761581672412898942}
   coinPrefab: {fileID: 8065618498464518378, guid: d7f04ea33a48e3645a210045951a2d81, type: 3}
   clipCoin: {fileID: 8300000, guid: 1b2af9d09e3347541ac7894b85617b17, type: 3}
-  cadency: 0.8
+  cadency: 0.7
   detectionRange: 16
   rotationSpeed: 12
   multiShot: 1
@@ -719,11 +719,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfd0f9b70e135ac45921faecfb8215e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  maxHealth: 50
+  maxHealth: 25
   sliderHealth: {fileID: 0}
   inmuneTime: 1
   clipDeath: {fileID: 8300000, guid: 595004f8e7b479246bca24a7eeae057b, type: 3}
   clipHurt: {fileID: 8300000, guid: 90000b478b522584f8d8f91bedb54dbc, type: 3}
+  healthNumberText: {fileID: 0}
 --- !u!4 &8018799042550148709 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 400ff1074cbaaa640ac7bd5f12bb4fcf, type: 3}

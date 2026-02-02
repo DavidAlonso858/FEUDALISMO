@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
             audioS.clip = clipDeath;
             StartSinking();
         }
-       
+
         audioS.Play();
     }
 
@@ -78,6 +78,7 @@ public class Enemy : MonoBehaviour
             yield return new WaitForSeconds(0.04f); // suavidad del hundimiento
         }
         Destroy(gameObject);
+        WaveManager.instance.EnemyDeath();
     }
 
 }

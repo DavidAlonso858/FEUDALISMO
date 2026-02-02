@@ -479,7 +479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f65de8c59c173147b311ed8b6f12733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  maxHealth: 120
+  maxHealth: 50
   clipDeath: {fileID: 8300000, guid: 5203142d17e603e48a47411ac5de5df8, type: 3}
 --- !u!136 &2078971895356837899
 CapsuleCollider:

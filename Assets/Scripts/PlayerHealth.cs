@@ -1,4 +1,4 @@
-using UnityEditor.Build.Content;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,15 +13,20 @@ public class PlayerHealth : MonoBehaviour
     private bool inmune = false; // para que entre en damage primero
 
     [SerializeField] private AudioClip clipDeath, clipHurt;
-
+    [SerializeField] private TMP_Text healthNumberText;
     AudioSource audioS;
 
     private void Awake()
     {
         sliderHealth.value = sliderHealth.maxValue = currentHealth = maxHealth;
         audioS = GetComponent<AudioSource>();
+        UpdateHealthText();
     }
-
+    private void UpdateHealthText()
+    {
+        sliderHealth.value = currentHealth;
+        healthNumberText.text = currentHealth + " / " + maxHealth;
+    }
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy") && !inmune)
@@ -36,6 +41,8 @@ public class PlayerHealth : MonoBehaviour
         inmune = true;
         currentHealth--;
         sliderHealth.value = currentHealth;
+        UpdateHealthText();
+
         if (currentHealth <= 0)
         {
             GetComponent<PlayerMovement>().enabled = false;

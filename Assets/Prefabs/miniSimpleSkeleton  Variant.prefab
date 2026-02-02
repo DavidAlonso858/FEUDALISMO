@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f65de8c59c173147b311ed8b6f12733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  maxHealth: 12
+  maxHealth: 4
   clipDeath: {fileID: 8300000, guid: 47d00a91be187b14a91352c8950f3937, type: 3}
 --- !u!82 &5528684718388165593
 AudioSource:

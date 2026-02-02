@@ -1,3 +1,4 @@
+using TMPro;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,26 +6,60 @@ public class WaveManager : MonoBehaviour
 {
     [SerializeField] private Spawner[] spawners;
     private int currentWave = 0;
-    void Start()
+    [SerializeField] private TMP_Text enemiesText;
+
+    // cambio de enemigo por ronda (valido al ser pocas rondas)
+    [SerializeField] private GameObject enemyWave1;
+    [SerializeField] private GameObject enemyWave2;
+    [SerializeField] private GameObject enemyFinalWave;
+
+    private int currentEnemies;
+    private int maxEnemiesWave;
+
+    public static WaveManager instance;
+
+    private void Awake()
     {
-        spawners[0].StartSpawn(3);
+        instance = this;
     }
+    private void Start()
+    {
+        StartWave();
+    }
+
+    private void UpdateEnemiesText()
+    {
+        enemiesText.text = currentEnemies + " / " + maxEnemiesWave;
+    }
+    public void EnemyDeath()
+    {
+        currentEnemies--;
+        UpdateEnemiesText();
+
+        if (currentEnemies <= 0)
+        {
+            StartWave();
+        }
+    }
+
     public void StartWave()
     {
         int min = 1, max = 3;
-
+        GameObject enemyToSpawn = enemyWave1;
         if (currentWave == 1)
         {
             min = 2; max = 5;
         }
 
+        if (currentWave == 2)
+        {
+            min = 6; max = 6;
+            enemyToSpawn = enemyWave2;
+        }
         if (currentWave == 3)
         {
-            min = 6; max = 6;
-        }
-        if (currentWave == 4)
-        {
-            min = 6; max = 6;
+            min = 1; max = 1;
+            enemyToSpawn = enemyFinalWave;
         }
 
         // activo los spawns con el rango aleatorio segun lo asignado en las oleadas
@@ -32,7 +67,8 @@ public class WaveManager : MonoBehaviour
         int activeSpawns = Random.Range(min, max + 1);
 
         List<int> usedIndexes = new List<int>();
-
+        currentEnemies = 0;
+        maxEnemiesWave = 0;
         for (int i = 0; i < activeSpawns; i++)
         {
             int indexSpawn;
@@ -44,10 +80,17 @@ public class WaveManager : MonoBehaviour
 
             // lo agrego para que no vuelvan a salir del mismo
             usedIndexes.Add(indexSpawn);
-            spawners[indexSpawn].StartSpawn(5);
+
+            int enemiesPerSpawner = 5;
+            spawners[indexSpawn].SetEnemy(enemyToSpawn);
+            spawners[indexSpawn].StartSpawn(enemiesPerSpawner);
+
+            currentEnemies += enemiesPerSpawner;
+            maxEnemiesWave += enemiesPerSpawner;
 
         }
 
+        UpdateEnemiesText();
         currentWave++;
     }
 

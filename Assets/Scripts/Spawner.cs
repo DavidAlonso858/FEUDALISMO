@@ -6,7 +6,10 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject enemy;
     [SerializeField] private float spawnTime;
 
-  
+    public void SetEnemy(GameObject newEnemy)
+    {
+        enemy = newEnemy;
+    }
     public void StartSpawn(int spawnLimit)
     {
         StartCoroutine(Spawn(spawnLimit));
