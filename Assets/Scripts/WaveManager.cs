@@ -6,6 +6,7 @@ public class WaveManager : MonoBehaviour
 {
     [SerializeField] private Spawner[] spawners;
     private int currentWave = 0;
+    [SerializeField] private int totalWaves = 4;
     [SerializeField] private TMP_Text enemiesText;
 
     // cambio de enemigo por ronda (valido al ser pocas rondas)
@@ -14,12 +15,13 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private GameObject enemyFinalWave;
 
     [SerializeField] private UpgradePanel upgradePanel;
+    [SerializeField] private GamePanelVictory gamePanelVictory;
+
     private int currentEnemies;
     private int maxEnemiesWave;
 
     public static WaveManager instance;
 
-    private bool isShowingUpgradePanel = false;
 
     private void Awake()
     {
@@ -42,23 +44,25 @@ public class WaveManager : MonoBehaviour
         if (currentEnemies <= 0)
         {
             Debug.Log("Oleada terminada. Oleada actual: " + currentWave);
+
+            if (currentWave >= totalWaves)
+            {
+                Debug.Log("Todas las oleadas completadas");
+                gamePanelVictory.Show();
+                return; // no sigo al ganar el juego
+            }
+
+
             // Mostrar panel de upgrades antes de la siguiente oleada
-            if (upgradePanel != null && currentWave < 3) // Asumiendo que hay 3-4 oleadas
+            if (upgradePanel != null) // Asumiendo que hay 3-4 oleadas
             {
                 Debug.Log("Mostrando panel de upgrades");
-                isShowingUpgradePanel = true;
                 upgradePanel.Show();
             }
             else
             {
-                if (upgradePanel == null)
-                {
-                    Debug.LogError("¡upgradePanel es NULL! Asigna el panel en el Inspector");
-                }
-                else
-                {
-                    Debug.Log("No se muestra panel (currentWave: " + currentWave + ")");
-                }
+                Debug.LogError("¡upgradePanel es NULL! Asigna el panel en el Inspector");
+                // Si no hay panel, continuar directamente
                 StartWave();
             }
         }
@@ -67,8 +71,9 @@ public class WaveManager : MonoBehaviour
 
     public void StartWave()
     {
+        if (currentWave >= totalWaves) return;
+
         Debug.Log("StartWave llamado. Oleada: " + currentWave);
-        isShowingUpgradePanel = false;
         int min = 1, max = 3;
         GameObject enemyToSpawn = enemyWave1;
         if (currentWave == 1)
@@ -83,7 +88,7 @@ public class WaveManager : MonoBehaviour
         }
         if (currentWave == 3)
         {
-            min = 1; max = 1;
+            min = 1; max = 1; // 5 minibosses que pongo en el inspector de Unity
             enemyToSpawn = enemyFinalWave;
         }
 
@@ -118,5 +123,4 @@ public class WaveManager : MonoBehaviour
         UpdateEnemiesText();
         currentWave++;
     }
-
 }

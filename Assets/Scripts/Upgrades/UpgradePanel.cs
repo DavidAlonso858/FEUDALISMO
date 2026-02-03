@@ -7,22 +7,19 @@ public class UpgradePanel : MonoBehaviour
     [Header("Botones")]
     public Button button1;
     public Button button2;
-    
+
     [Header("Textos")]
     public TMP_Text text1;
     public TMP_Text text2;
     public TMP_Text description1;
     public TMP_Text description2;
-    
+
     private UpgradeGeneral upgrade1;
     private UpgradeGeneral upgrade2;
     private bool panelActive = false;
 
     private void Start()
     {
-        // Desactivar al inicio
-        gameObject.SetActive(false);
-        
         // Configurar listeners
         SetupButtonListeners();
     }
@@ -34,7 +31,7 @@ public class UpgradePanel : MonoBehaviour
             button1.onClick.RemoveAllListeners();
             button1.onClick.AddListener(() => SelectUpgrade(1));
         }
-        
+
         if (button2 != null)
         {
             button2.onClick.RemoveAllListeners();
@@ -44,21 +41,48 @@ public class UpgradePanel : MonoBehaviour
 
     public void Show()
     {
-        if (panelActive || gameObject.activeSelf) return;
-        
+        if (panelActive || gameObject.activeSelf)
+        {
+            Debug.LogWarning("Panel ya está activo, ignorando Show()");
+            return;
+        }
+
         Debug.Log("=== MOSTRANDO PANEL DE UPGRADES ===");
+
+        // Verificar Canvas
+        Canvas canvas = GetComponentInParent<Canvas>();
+        if (canvas == null)
+        {
+            Debug.LogError("¡NO HAY CANVAS PADRE! El panel debe estar dentro de un Canvas");
+            return;
+        }
+        else
+        {
+            Debug.Log($"Canvas encontrado: {canvas.name}, Enabled: {canvas.enabled}");
+        }
+
+        // Verificar GameObject padre
+        if (transform.parent != null)
+        {
+            Debug.Log($"Padre del panel: {transform.parent.name}, Activo: {transform.parent.gameObject.activeSelf}");
+        }
+
         panelActive = true;
-        
+
         // Pausar el juego
         Time.timeScale = 0f;
-        
+        Debug.Log("Time.timeScale = 0");
+
         // Activar el panel
         gameObject.SetActive(true);
-        
+        Debug.Log($"Panel activado. gameObject.activeSelf = {gameObject.activeSelf}");
+
+        // Forzar que esté al frente
+        transform.SetAsLastSibling();
+
         // Obtener upgrades
         LoadUpgrades();
     }
-
     private void LoadUpgrades()
     {
         if (UpgradeManager.instance == null)
@@ -66,25 +90,25 @@ public class UpgradePanel : MonoBehaviour
             Debug.LogError("UpgradeManager no encontrado!");
             return;
         }
-        
+
         var upgrades = UpgradeManager.instance.GetTwoRandomUpgrades();
-        
+
         if (upgrades.Count >= 2)
         {
             upgrade1 = upgrades[0];
             upgrade2 = upgrades[1];
-            
+
             // Actualizar UI
             text1.text = upgrade1.upgradeName;
             text2.text = upgrade2.upgradeName;
-            
+
             if (description1 != null) description1.text = upgrade1.description;
             if (description2 != null) description2.text = upgrade2.description;
-            
+
             // Activar botones
             button1.interactable = true;
             button2.interactable = true;
-            
+
             Debug.Log($"Upgrades cargados: {upgrade1.upgradeName} y {upgrade2.upgradeName}");
         }
         else if (upgrades.Count == 1)
@@ -93,7 +117,7 @@ public class UpgradePanel : MonoBehaviour
             text1.text = upgrade1.upgradeName;
             if (description1 != null) description1.text = upgrade1.description;
             button2.interactable = false;
-            
+
             Debug.Log($"Solo 1 upgrade: {upgrade1.upgradeName}");
         }
     }
@@ -101,11 +125,11 @@ public class UpgradePanel : MonoBehaviour
     private void SelectUpgrade(int upgradeNumber)
     {
         Debug.Log($"Botón {upgradeNumber} clickeado");
-        
+
         if (!panelActive) return;
-        
+
         UpgradeGeneral selectedUpgrade = upgradeNumber == 1 ? upgrade1 : upgrade2;
-        
+
         if (selectedUpgrade != null)
         {
             Debug.Log($"Aplicando upgrade: {selectedUpgrade.upgradeName}");
@@ -121,14 +145,14 @@ public class UpgradePanel : MonoBehaviour
     private void Close()
     {
         Debug.Log("Cerrando panel");
-        
+
         // Reanudar juego
         Time.timeScale = 1f;
-        
+
         // Desactivar panel
         gameObject.SetActive(false);
         panelActive = false;
-        
+
         // Iniciar siguiente oleada inmediatamente
         StartNextWave();
     }

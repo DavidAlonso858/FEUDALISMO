@@ -30,7 +30,6 @@ public class Enemy : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    // Update is called once per frame
     private void Update()
     {
         if (currentHealth <= 0) return;

@@ -45,7 +45,7 @@ public class PlayerHealth : MonoBehaviour
     public void GetDamage()
     {
         inmune = true;
-        currentHealth--;
+        currentHealth -= 2;
         sliderHealth.value = currentHealth;
         UpdateHealthText();
 

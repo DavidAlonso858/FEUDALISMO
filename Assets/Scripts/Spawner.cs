@@ -17,8 +17,8 @@ public class Spawner : MonoBehaviour
 
     IEnumerator Spawn(int spawnLimit)
     {
-        Debug.Log("Spawneando enemigo");
         int spawnCount = 0;
+        Debug.Log("Spawneando enemigo" + spawnCount);
 
         while (spawnCount < spawnLimit)
         {
