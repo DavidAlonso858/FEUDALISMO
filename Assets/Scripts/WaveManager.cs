@@ -13,10 +13,13 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private GameObject enemyWave2;
     [SerializeField] private GameObject enemyFinalWave;
 
+    [SerializeField] private UpgradePanel upgradePanel;
     private int currentEnemies;
     private int maxEnemiesWave;
 
     public static WaveManager instance;
+
+    private bool isShowingUpgradePanel = false;
 
     private void Awake()
     {
@@ -38,12 +41,34 @@ public class WaveManager : MonoBehaviour
 
         if (currentEnemies <= 0)
         {
-            StartWave();
+            Debug.Log("Oleada terminada. Oleada actual: " + currentWave);
+            // Mostrar panel de upgrades antes de la siguiente oleada
+            if (upgradePanel != null && currentWave < 3) // Asumiendo que hay 3-4 oleadas
+            {
+                Debug.Log("Mostrando panel de upgrades");
+                isShowingUpgradePanel = true;
+                upgradePanel.Show();
+            }
+            else
+            {
+                if (upgradePanel == null)
+                {
+                    Debug.LogError("¡upgradePanel es NULL! Asigna el panel en el Inspector");
+                }
+                else
+                {
+                    Debug.Log("No se muestra panel (currentWave: " + currentWave + ")");
+                }
+                StartWave();
+            }
         }
+
     }
 
     public void StartWave()
     {
+        Debug.Log("StartWave llamado. Oleada: " + currentWave);
+        isShowingUpgradePanel = false;
         int min = 1, max = 3;
         GameObject enemyToSpawn = enemyWave1;
         if (currentWave == 1)

@@ -62,6 +62,10 @@ public class PlayerShooting : MonoBehaviour
             ShootFromAllPoints();
         }
     }
+    public void IncreaseFireRate(float amount)
+    {
+        cadency = Mathf.Max(0.1f, cadency - amount);
+    }
 
     void FindEnemiesInRange()
     {
@@ -201,7 +205,7 @@ public class PlayerShooting : MonoBehaviour
 
         // Crear la moneda
         GameObject coin = Instantiate(coinPrefab, shootPoint.position, coinPrefab.transform.rotation);
-        
+
         // Orientar la moneda hacia el enemigo
         Vector3 direction = (target.position - shootPoint.position).normalized;
 

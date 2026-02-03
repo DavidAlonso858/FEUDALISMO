@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private float maxHealth;
+    [SerializeField] public float maxHealth;
     private float currentHealth;
 
     [SerializeField] private Slider sliderHealth;
@@ -22,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
         audioS = GetComponent<AudioSource>();
         UpdateHealthText();
     }
+
     private void UpdateHealthText()
     {
         sliderHealth.value = currentHealth;
@@ -35,7 +36,12 @@ public class PlayerHealth : MonoBehaviour
             GetDamage();
         }
     }
-
+    public void IncreaseMaxHealth(float amount)
+    {
+        maxHealth += amount;
+        currentHealth += amount;
+        UpdateHealthText();
+    }
     public void GetDamage()
     {
         inmune = true;

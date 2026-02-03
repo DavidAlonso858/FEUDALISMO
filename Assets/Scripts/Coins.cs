@@ -21,6 +21,10 @@ public class Coins : MonoBehaviour
         Destroy(gameObject, lifetime);
     }
 
+    public void IncreaseDamage(int amount)
+    {
+        damage += amount;
+    }
     public void SetTarget(Transform targetTransform)
     {
         target = targetTransform;

@@ -12,6 +12,11 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    public void IncreaseSpeed(float amount)
+    {
+        speed += amount;
+    }
+
     private void FixedUpdate()
     {
         if (rb != null)
