@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private AudioClip clipDeath, clipHurt;
     [SerializeField] private TMP_Text healthNumberText;
+    [SerializeField] private GamePanelDeath gamePanelDeath;
     AudioSource audioS;
 
     private void Awake()
@@ -54,8 +55,8 @@ public class PlayerHealth : MonoBehaviour
             GetComponent<PlayerMovement>().enabled = false;
             GetComponent<PlayerShooting>().enabled = false;
             GetComponent<Rigidbody>().isKinematic = true;
-            GetComponent<Animator>().Play("Death");
             audioS.clip = clipDeath;
+            gamePanelDeath.Show();
         }
         else
         {

@@ -1,19 +1,19 @@
 using UnityEngine;
 
-public class GamePanelVictory : MonoBehaviour
+public class GamePanelDeath : MonoBehaviour
 {
-    public static GamePanelVictory instance;
+    public static GamePanelDeath instance;
 
     private void Awake()
     {
         instance = this;
-        }
+    }
 
     public void Show()
     {
         Time.timeScale = 0f;
         gameObject.SetActive(true);
-        Debug.Log("JUEGO TERMINADO - VICTORIA");
+        Debug.Log("JUEGO TERMINADO - DERROTA");
     }
 
     public void Restart()

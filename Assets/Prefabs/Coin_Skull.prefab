@@ -127,7 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Coins
   speed: 20
   lifetime: 3
-  damage: 1.5
+  damage: 2
   homingStrength: 2
 --- !u!108 &6734494629153835877
 Light:

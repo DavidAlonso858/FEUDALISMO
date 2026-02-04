@@ -11,7 +11,7 @@ public class UpgradeHealthBasic : UpgradeGeneral
     public override void Apply()
     {
         // Usar FindObjectOfType en lugar de FindAnyObjectByType para mayor compatibilidad
-        PlayerHealth playerHealth = GameObject.FindObjectOfType<PlayerHealth>();
+        PlayerHealth playerHealth = Object.FindAnyObjectByType  <PlayerHealth>();
         if (playerHealth != null)
         {
             playerHealth.IncreaseMaxHealth(5);
