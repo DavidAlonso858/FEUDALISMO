@@ -1149,7 +1149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6792453, g: 0.57111067, b: 0.24670699, a: 1}
+  m_Color: {r: 0.5754717, g: 0.49218625, b: 0.23616058, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2369,7 +2369,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: EL FEUDALISMO SIGUE VIVO
+  m_text: EL  FEUDALISMO  SIGUE VIVO
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cea49eb118e87d3488c81db72b889d9f, type: 2}
   m_sharedMaterial: {fileID: -4155690809691854870, guid: cea49eb118e87d3488c81db72b889d9f, type: 2}
@@ -2378,8 +2378,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290166735
-  m_fontColor: {r: 0.8113208, g: 0.74837506, b: 0.71564615, a: 1}
+    rgba: 4291877612
+  m_fontColor: {r: 0.9245283, g: 0.8547526, b: 0.8155037, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2435,7 +2435,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0.0010375977, z: 0, w: -5.612671}
+  m_margin: {x: -64.54114, y: 0.0010375977, z: -79.93872, w: -5.612671}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3532,7 +3532,7 @@ Camera:
   far clip plane: 1000
   field of view: 30
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 18
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -3574,11 +3574,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: d61d24274c365420a99b5431a318d845, type: 3}
+  m_Resource: {fileID: 8300000, guid: b6ee430fccbc7e244947f851198f88ab, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7349,8 +7349,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -272}
-  m_SizeDelta: {x: 275.8789, y: 128.3031}
+  m_AnchoredPosition: {x: 0.000026703, y: -273}
+  m_SizeDelta: {x: 352.0605, y: 128.3031}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &994535972
 MonoBehaviour:
@@ -7834,7 +7834,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1016184921}
   - component: {fileID: 1016184923}
-  - component: {fileID: 1016184922}
   - component: {fileID: 1016184924}
   m_Layer: 0
   m_Name: CAMERA PIVOT
@@ -7859,14 +7858,6 @@ Transform:
   - {fileID: 582546732}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 35, y: 40, z: 0}
---- !u!81 &1016184922
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1016184920}
-  m_Enabled: 0
 --- !u!20 &1016184923
 Camera:
   m_ObjectHideFlags: 0
@@ -8154,7 +8145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: restart
+  m_text: vOLVER AL FEUDO
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d3afcd40cc9af344d9a5d44ceeec5824, type: 2}
   m_sharedMaterial: {fileID: -7942118903617455156, guid: d3afcd40cc9af344d9a5d44ceeec5824, type: 2}
@@ -8531,7 +8522,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Exit
+  m_text: Exir
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d3afcd40cc9af344d9a5d44ceeec5824, type: 2}
   m_sharedMaterial: {fileID: -7942118903617455156, guid: d3afcd40cc9af344d9a5d44ceeec5824, type: 2}
@@ -10565,7 +10556,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: restart
+  m_text: Tentar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d3afcd40cc9af344d9a5d44ceeec5824, type: 2}
   m_sharedMaterial: {fileID: -7942118903617455156, guid: d3afcd40cc9af344d9a5d44ceeec5824, type: 2}
@@ -12518,7 +12509,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: EL  FINAL  DEL FEUDALISMO
+  m_text: FIN  DEL FEUDALISMO
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cea49eb118e87d3488c81db72b889d9f, type: 2}
   m_sharedMaterial: {fileID: -4155690809691854870, guid: cea49eb118e87d3488c81db72b889d9f, type: 2}

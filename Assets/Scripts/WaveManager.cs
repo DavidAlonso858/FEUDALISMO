@@ -74,11 +74,11 @@ public class WaveManager : MonoBehaviour
         if (currentWave >= totalWaves) return;
 
         Debug.Log("StartWave llamado. Oleada: " + currentWave);
-        int min = 1, max = 3;
+        int min = 1, max = 2;
         GameObject enemyToSpawn = enemyWave1;
         if (currentWave == 1)
         {
-            min = 2; max = 5;
+            min = 3; max = 5;
         }
 
         if (currentWave == 2)

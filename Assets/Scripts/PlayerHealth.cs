@@ -12,15 +12,12 @@ public class PlayerHealth : MonoBehaviour
 
     private bool inmune = false; // para que entre en damage primero
 
-    [SerializeField] private AudioClip clipDeath, clipHurt;
     [SerializeField] private TMP_Text healthNumberText;
     [SerializeField] private GamePanelDeath gamePanelDeath;
-    AudioSource audioS;
 
     private void Awake()
     {
         sliderHealth.value = sliderHealth.maxValue = currentHealth = maxHealth;
-        audioS = GetComponent<AudioSource>();
         UpdateHealthText();
     }
 
@@ -55,14 +52,8 @@ public class PlayerHealth : MonoBehaviour
             GetComponent<PlayerMovement>().enabled = false;
             GetComponent<PlayerShooting>().enabled = false;
             GetComponent<Rigidbody>().isKinematic = true;
-            audioS.clip = clipDeath;
             gamePanelDeath.Show();
         }
-        else
-        {
-            audioS.clip = clipHurt;
-        }
-        audioS.Play();
 
         // Invoke es una forma de llamar al método dentro de X tiempo 
         // nameof devuelve un string usando el metodo y no pasa nada si le cambio el nombre

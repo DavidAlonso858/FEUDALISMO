@@ -530,7 +530,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.09
+  m_Volume: 0.04
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -721,9 +721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   maxHealth: 25
   sliderHealth: {fileID: 0}
-  inmuneTime: 0.8
-  clipDeath: {fileID: 8300000, guid: 595004f8e7b479246bca24a7eeae057b, type: 3}
-  clipHurt: {fileID: 8300000, guid: 90000b478b522584f8d8f91bedb54dbc, type: 3}
+  inmuneTime: 0.6
   healthNumberText: {fileID: 0}
   gamePanelDeath: {fileID: 0}
 --- !u!4 &8018799042550148709 stripped
