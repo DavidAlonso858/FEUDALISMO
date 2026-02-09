@@ -10,47 +10,47 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8109fcb8f8c71d247b997c64b97f702c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8109fcb8f8c71d247b997c64b97f702c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8109fcb8f8c71d247b997c64b97f702c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8109fcb8f8c71d247b997c64b97f702c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.81933
+      value: -4.628371
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8109fcb8f8c71d247b997c64b97f702c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.057
+      value: 3.3132374
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8109fcb8f8c71d247b997c64b97f702c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.54611
+      value: -2.1237416
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8109fcb8f8c71d247b997c64b97f702c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7261358
+      value: 0.67559016
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8109fcb8f8c71d247b997c64b97f702c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.6875514
+      value: -0.7372774
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8109fcb8f8c71d247b997c64b97f702c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8109fcb8f8c71d247b997c64b97f702c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8109fcb8f8c71d247b997c64b97f702c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -86.873
+      value: -95
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8109fcb8f8c71d247b997c64b97f702c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -125,12 +125,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a98135168e237408cb956aecd62263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coins
-  speed: 15
+  speed: 20
   lifetime: 3
-  damage: 1
+  damage: 1.5
   homingStrength: 2
-  hitEffect: {fileID: 0}
-  hitSound: {fileID: 0}
 --- !u!108 &6734494629153835877
 Light:
   m_ObjectHideFlags: 0
@@ -143,7 +141,7 @@ Light:
   m_Type: 0
   m_Color: {r: 1, g: 0.9624444, b: 0, a: 1}
   m_Intensity: 1
-  m_Range: 10
+  m_Range: 15
   m_SpotAngle: 64
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10

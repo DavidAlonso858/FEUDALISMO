@@ -55,13 +55,16 @@ public class PlayerShooting : MonoBehaviour
         // Buscar enemigos en rango
         FindEnemiesInRange();
 
-        // Rotar hacia el enemigo más cercano o el mouse
         RotatePlayer();
 
         if (canShoot && enemiesInRange.Count > 0)
         {
             ShootFromAllPoints();
         }
+    }
+    public void IncreaseFireRate(float amount)
+    {
+        cadency = Mathf.Max(0.1f, cadency - amount);
     }
 
     void FindEnemiesInRange()
@@ -131,20 +134,7 @@ public class PlayerShooting : MonoBehaviour
 
     void RotatePlayer()
     {
-        if (enemiesInRange.Count > 0 && enemiesInRange[0] != null)
-        {
-            // Rotar hacia el enemigo más cercano
-            Vector3 lookPos = enemiesInRange[0].transform.position - transform.position;
-            lookPos.y = 0;
-
-            if (lookPos != Vector3.zero)
-            {
-                Quaternion targetRotation = Quaternion.LookRotation(lookPos);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation,
-                    rotationSpeed * Time.deltaTime);
-            }
-        }
-        else if (cam != null)
+        if (cam != null)
         {
             // Rotar hacia el mouse
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -214,11 +204,10 @@ public class PlayerShooting : MonoBehaviour
         yield return new WaitForSeconds(pointIndex * 0.05f);
 
         // Crear la moneda
-        GameObject coin = Instantiate(coinPrefab, shootPoint.position, shootPoint.rotation);
+        GameObject coin = Instantiate(coinPrefab, shootPoint.position, coinPrefab.transform.rotation);
 
         // Orientar la moneda hacia el enemigo
         Vector3 direction = (target.position - shootPoint.position).normalized;
-        coin.transform.rotation = Quaternion.LookRotation(direction);
 
         // Configurar la moneda
         Coins coinScript = coin.GetComponent<Coins>();

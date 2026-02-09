@@ -1,0 +1,29 @@
+using UnityEngine;
+
+public class GamePanelVictory : MonoBehaviour
+{
+    public static GamePanelVictory instance;
+
+    private void Awake()
+    {
+        instance = this;
+        }
+
+    public void Show()
+    {
+        Time.timeScale = 0f;
+        gameObject.SetActive(true);
+        Debug.Log("JUEGO TERMINADO - VICTORIA");
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1f;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+}
